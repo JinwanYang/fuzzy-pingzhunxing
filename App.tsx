@@ -94,7 +94,7 @@ const App: React.FC = () => {
   const LoginView = () => (
     <div className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-[#0f172a]">
       <div className="absolute inset-0 bg-[url('https://picsum.photos/1920/1080?blur=4')] bg-cover opacity-10 z-0"></div>
-      <div className="z-10 text-center space-y-8 p-10 glass-panel rounded-3xl max-w-md w-full mx-4 shadow-2xl shadow-blue-900/30 border border-slate-700">
+      <div className="z-10 text-center space-y-8 p-10 rounded-3xl max-w-md w-full mx-4 shadow-2xl shadow-blue-900/30 border border-slate-700" style={{ backdropFilter: 'blur(12px)', backgroundColor: 'rgba(15, 23, 42, 0.8)' }}>
         <div className="flex justify-center mb-6">
            <div className="bg-gradient-to-tr from-blue-600 to-indigo-500 p-5 rounded-2xl shadow-lg shadow-blue-500/20">
              <TrendingUp size={56} className="text-white" />
@@ -128,7 +128,7 @@ const App: React.FC = () => {
           {/* Background Grid */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:40px_40px] opacity-20 pointer-events-none"></div>
 
-          <div className="glass-panel w-full max-w-lg p-8 rounded-2xl shadow-2xl relative z-10 border border-slate-700">
+          <div className="w-full max-w-lg p-8 rounded-2xl shadow-2xl relative z-10 border border-slate-700" style={{ backdropFilter: 'blur(12px)', backgroundColor: 'rgba(15, 23, 42, 0.8)' }}>
             <div className="flex items-center gap-4 mb-8 border-b border-gray-700 pb-6">
                <div className="bg-blue-500/20 p-3 rounded-full">
                     <User className="text-blue-400 w-8 h-8" />
@@ -210,7 +210,7 @@ const App: React.FC = () => {
   const DashboardView = () => (
     <div className="min-h-screen bg-slate-950 text-white pb-20 font-sans">
       {/* Header */}
-      <header className="sticky top-0 z-50 glass-panel border-b border-gray-800 px-4 py-3 shadow-lg">
+      <header className="sticky top-0 z-50 border-b border-gray-800 px-4 py-3 shadow-lg" style={{ backdropFilter: 'blur(12px)', backgroundColor: 'rgba(15, 23, 42, 0.8)' }}>
         <div className="max-w-4xl mx-auto flex items-center justify-between">
             <div className="flex items-center gap-2 cursor-pointer" onClick={() => setView(AppView.DASHBOARD)}>
                 <div className="bg-gradient-to-br from-blue-500 to-indigo-600 p-1.5 rounded-lg">
@@ -246,7 +246,7 @@ const App: React.FC = () => {
 
       <main className="max-w-4xl mx-auto p-4 space-y-6 mt-4">
         {!stockData ? (
-           <div className="text-center py-32 animate-fade-in">
+           <div className="text-center py-32">
                <div className="bg-slate-900/50 p-10 rounded-3xl inline-block border border-slate-800 shadow-xl">
                    <div className="bg-slate-800 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                         <BarChart2 className="w-10 h-10 text-blue-500" />
@@ -260,10 +260,10 @@ const App: React.FC = () => {
         ) : (
             <>
                 {/* Stock Overview Card */}
-                <div className="glass-panel rounded-2xl relative overflow-hidden shadow-2xl border border-slate-700">
+                <div className="rounded-2xl relative overflow-hidden shadow-2xl border border-slate-700" style={{ backdropFilter: 'blur(12px)', backgroundColor: 'rgba(15, 23, 42, 0.8)' }}>
                     <div className="absolute top-0 right-0 w-2/3 h-full opacity-30 pointer-events-none">
                          {stockData.generatedImage && (
-                            <img src={stockData.generatedImage} alt="Visualization" className="w-full h-full object-cover mask-image-linear-gradient" />
+                            <img src={stockData.generatedImage} alt="Visualization" className="w-full h-full object-cover" style={{ maskImage: 'linear-gradient(to left, black, transparent)' }} />
                          )}
                          <div className="absolute inset-0 bg-gradient-to-l from-slate-900 via-slate-900/80 to-transparent"></div>
                     </div>
@@ -295,7 +295,7 @@ const App: React.FC = () => {
                                     <Shield className="w-4 h-4 text-orange-400" />
                                     <h3 className="text-sm font-bold text-orange-400 uppercase tracking-wider">AI 风险评估报告</h3>
                                 </div>
-                                <p className="text-sm text-gray-300 leading-relaxed text-justify h-24 overflow-y-auto pr-2 custom-scrollbar">
+                                <p className="text-sm text-gray-300 leading-relaxed text-justify h-24 overflow-y-auto pr-2" style={{ scrollbarWidth: 'thin', scrollbarColor: '#475569 #1e293b' }}>
                                     {stockData.riskReport}
                                 </p>
                             </div>
@@ -306,7 +306,7 @@ const App: React.FC = () => {
                                     <Activity className="w-4 h-4 text-blue-400" />
                                     <h3 className="text-sm font-bold text-blue-400 uppercase tracking-wider">近期市场动态</h3>
                                 </div>
-                                <p className="text-sm text-gray-300 leading-relaxed text-justify h-24 overflow-y-auto pr-2 custom-scrollbar">
+                                <p className="text-sm text-gray-300 leading-relaxed text-justify h-24 overflow-y-auto pr-2" style={{ scrollbarWidth: 'thin', scrollbarColor: '#475569 #1e293b' }}>
                                     {stockData.recentSituation}
                                 </p>
                             </div>
@@ -322,7 +322,7 @@ const App: React.FC = () => {
                             平台智能优选
                         </h3>
                         <div className="text-xs text-gray-500 flex gap-4">
-                            <span className="flex items-center gap-1"><div className="w-2 h-2 rounded-full bg-gold"></div> 综合评分最高</span>
+                            <span className="flex items-center gap-1"><div className="w-2 h-2 rounded-full bg-yellow-500"></div> 综合评分最高</span>
                             <span className="flex items-center gap-1"><div className="w-2 h-2 rounded-full bg-slate-600"></div> 次优选择</span>
                         </div>
                     </div>
@@ -332,13 +332,14 @@ const App: React.FC = () => {
                             <div 
                                 key={platform.id}
                                 onClick={() => handlePlatformClick(platform)}
-                                className="glass-panel p-5 rounded-xl border border-slate-700 hover:border-blue-500 cursor-pointer transition-all hover:translate-x-1 group relative overflow-hidden"
+                                className="p-5 rounded-xl border border-slate-700 hover:border-blue-500 cursor-pointer transition-all hover:translate-x-1 group relative overflow-hidden"
+                                style={{ backdropFilter: 'blur(12px)', backgroundColor: 'rgba(15, 23, 42, 0.8)' }}
                             >
                                 <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                                 
                                 <div className="flex justify-between items-center mb-3">
                                     <div className="flex items-center gap-4">
-                                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg shadow-inner ${idx === 0 ? 'bg-gold text-black shadow-orange-500/20' : 'bg-slate-700 text-gray-400'}`}>
+                                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg shadow-inner ${idx === 0 ? 'bg-yellow-500 text-black shadow-orange-500/20' : 'bg-slate-700 text-gray-400'}`}>
                                             {idx + 1}
                                         </div>
                                         <div>
@@ -352,14 +353,14 @@ const App: React.FC = () => {
                                     <div className="text-right">
                                         <div className="flex flex-col items-end">
                                             <span className="text-xs text-gray-400 uppercase tracking-wide mb-1">推荐指数</span>
-                                            <div className="text-3xl font-bold text-gold font-mono leading-none">{platform.matchRate}<span className="text-sm text-gray-500">%</span></div>
+                                            <div className="text-3xl font-bold text-yellow-500 font-mono leading-none">{platform.matchRate}<span className="text-sm text-gray-500">%</span></div>
                                         </div>
                                     </div>
                                 </div>
                                 
                                 <div className="flex items-center gap-2 my-3">
                                     <div className="h-1.5 flex-1 bg-slate-800 rounded-full overflow-hidden">
-                                        <div className="h-full bg-gold rounded-full" style={{ width: `${platform.matchRate}%` }}></div>
+                                        <div className="h-full bg-yellow-500 rounded-full" style={{ width: `${platform.matchRate}%` }}></div>
                                     </div>
                                 </div>
 
@@ -406,7 +407,7 @@ const App: React.FC = () => {
 
     return (
       <div className="min-h-screen bg-slate-950 text-white pb-10 font-sans">
-        <header className="sticky top-0 z-50 glass-panel border-b border-gray-800 p-4 shadow-lg flex items-center gap-4">
+        <header className="sticky top-0 z-50 border-b border-gray-800 p-4 shadow-lg flex items-center gap-4" style={{ backdropFilter: 'blur(12px)', backgroundColor: 'rgba(15, 23, 42, 0.8)' }}>
            <button onClick={() => setView(AppView.DASHBOARD)} className="hover:bg-slate-800 p-2 rounded-full transition-colors group">
                <ArrowRight className="rotate-180 w-5 h-5 text-gray-400 group-hover:text-white" />
            </button>
@@ -425,12 +426,12 @@ const App: React.FC = () => {
             {/* Top Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {[
-                    { label: '综合推荐率', value: selectedPlatform.matchRate, color: 'text-gold', border: 'border-gold', tooltip: '算法模型：(准确率×40% + 适配度×30% + 智慧度×30%)' },
-                    { label: '历史准确率', value: selectedPlatform.accuracyScore, color: 'text-green-400', border: 'border-green-500', tooltip: '算法模型：过去30天平台情感指数与次日股价涨跌的皮尔逊相关系数' },
-                    { label: '用户适配度', value: selectedPlatform.userFit, color: 'text-blue-400', border: 'border-blue-500', tooltip: '算法模型：基于您的资金体量与风险偏好与平台用户画像的余弦相似度' },
-                    { label: '近期信号', value: selectedPlatform.recentSignal === 'Buy' ? '看涨' : selectedPlatform.recentSignal === 'Sell' ? '看跌' : '持仓', color: selectedPlatform.recentSignal === 'Buy' ? 'text-red-500' : selectedPlatform.recentSignal === 'Sell' ? 'text-green-500' : 'text-gray-300', border: 'border-purple-500', tooltip: '算法模型：NLP提取最近24小时评论中的显性买卖指令' }
+                    { label: '综合推荐率', value: selectedPlatform.matchRate, color: 'text-yellow-500', border: 'border-t-yellow-500', tooltip: '算法模型：(准确率×40% + 适配度×30% + 智慧度×30%)' },
+                    { label: '历史准确率', value: selectedPlatform.accuracyScore, color: 'text-green-400', border: 'border-t-green-500', tooltip: '算法模型：过去30天平台情感指数与次日股价涨跌的皮尔逊相关系数' },
+                    { label: '用户适配度', value: selectedPlatform.userFit, color: 'text-blue-400', border: 'border-t-blue-500', tooltip: '算法模型：基于您的资金体量与风险偏好与平台用户画像的余弦相似度' },
+                    { label: '近期信号', value: selectedPlatform.recentSignal === 'Buy' ? '看涨' : selectedPlatform.recentSignal === 'Sell' ? '看跌' : '持仓', color: selectedPlatform.recentSignal === 'Buy' ? 'text-red-500' : selectedPlatform.recentSignal === 'Sell' ? 'text-green-500' : 'text-gray-300', border: 'border-t-purple-500', tooltip: '算法模型：NLP提取最近24小时评论中的显性买卖指令' }
                 ].map((stat, i) => (
-                    <div key={i} className={`glass-panel p-4 rounded-xl text-center border-t-4 ${stat.border} relative group`}>
+                    <div key={i} className={`p-4 rounded-xl text-center border ${stat.border} relative group`} style={{ backdropFilter: 'blur(12px)', backgroundColor: 'rgba(15, 23, 42, 0.8)' }}>
                         <p className="text-xs text-gray-400 mb-2 flex items-center justify-center gap-1 cursor-help">
                             {stat.label} 
                             <Info className="w-3 h-3 text-gray-600" />
@@ -449,9 +450,9 @@ const App: React.FC = () => {
                 {/* Main Content Left */}
                 <div className="lg:col-span-2 space-y-6">
                     {/* Why This Platform */}
-                    <div className="glass-panel p-6 rounded-2xl border border-slate-700">
+                    <div className="p-6 rounded-2xl border border-slate-700" style={{ backdropFilter: 'blur(12px)', backgroundColor: 'rgba(15, 23, 42, 0.8)' }}>
                         <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-white">
-                            <Zap className="w-5 h-5 text-gold" />
+                            <Zap className="w-5 h-5 text-yellow-500" />
                             AI 推荐理由
                         </h3>
                         <p className="text-gray-300 leading-loose text-base font-light border-l-2 border-slate-600 pl-4">
@@ -465,7 +466,7 @@ const App: React.FC = () => {
                     </div>
 
                     {/* K-Line Chart */}
-                    <div className="glass-panel p-2 rounded-2xl border border-slate-700">
+                    <div className="p-2 rounded-2xl border border-slate-700" style={{ backdropFilter: 'blur(12px)', backgroundColor: 'rgba(15, 23, 42, 0.8)' }}>
                          <StockChart data={kLineData} />
                          <div className="px-4 pb-2 text-xs text-gray-500 text-center">
                             * 注：K线图为基于真实价格({stockData.price})与近期趋势({stockData.changePercent}%)生成的模拟走势，仅供趋势参考。
@@ -476,7 +477,7 @@ const App: React.FC = () => {
                 {/* Sidebar Right */}
                 <div className="space-y-6">
                     {/* Radar */}
-                    <div className="glass-panel p-2 rounded-2xl border border-slate-700">
+                    <div className="p-2 rounded-2xl border border-slate-700" style={{ backdropFilter: 'blur(12px)', backgroundColor: 'rgba(15, 23, 42, 0.8)' }}>
                         <RadarDetail platform={selectedPlatform} />
                     </div>
 
@@ -488,7 +489,7 @@ const App: React.FC = () => {
                         </h4>
                         <ul className="space-y-2 list-disc list-inside">
                             <li><span className="text-gray-300">评论价值评估：</span>运用NLP识别用户明确的“买/持/卖”指令（Buy=1），过滤无效灌水。</li>
-                            <li><span className="text-gray-300">准确率回测：</span>计算平台情绪指标与次日股价涨跌的吻合度。</li>
+                            <li><span className="text-gray-300">准确率回测：</span>计算平台情绪指标与次日股价涨跌的皮尔逊相关系数。</li>
                             <li><span className="text-gray-300">跨平台效能：</span>结合市场传导力与群体智慧密度，综合评分。</li>
                         </ul>
                     </div>
